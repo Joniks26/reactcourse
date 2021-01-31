@@ -6,7 +6,7 @@ let state = {
     profilePage: {
         posts: [
             {id: 1, message: 'HI, how are you?', likes: 12},
-            {id: 2, message: "It's my first post", likes: 111}
+            {id: 2, message: "It's my first post!", likes: 111}
         ],
         newPostText: 'Введите текст'
     },
