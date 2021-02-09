@@ -5,8 +5,15 @@
   }
 
 .header img {
-    width: 40px;
+    width: 60px;
     height: 40px;
-    border-left: 10px solid #323232;
+    transform: rotate(1440deg);
+    transition: all 2s;
   }
+
+.header img:hover {
+    transform: rotate(0deg);
+    transition-delay: 0;
+    transition: all 10s;
+}
 

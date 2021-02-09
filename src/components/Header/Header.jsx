@@ -1,14 +1,21 @@
 import React from 'react';
 import s from './Header.module.css';
+import {NavLink} from "react-router-dom";
 
 /*let s = {
 //'header': 'Header_header__3mObx'
 }*/
 
+
+
 const Header = () => {
 return <nav className={s.header}>
-<img src ='https://avatars1.githubusercontent.com/u/9919?s=200&v=4'></img>
+    <NavLink to="/profile">
+        <img src ='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1280px-React-icon.svg.png'></img>
+    </NavLink>
 </nav>
+
+
 }
 
 export default Header;

@@ -1,53 +1,53 @@
-let rerenderEntireTree = () => {
-    console.log('state changed');
-}
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
 
-let state = {
-    profilePage: {
-        posts: [
-            {id: 1, message: 'HI, how are you?', likes: 12},
-            {id: 2, message: "It's my first post!", likes: 111}
-        ],
-        newPostText: 'Введите текст'
+let store = {
+    _state: {
+        profilePage: {
+            posts: [
+                {id: 1, message: 'HI, how are you?', likes: 12},
+                {id: 2, message: "It's my first post!", likes: 111}
+            ],
+            newPostText: 'Введите текст'
+        },
+        messagesPage: {
+            dialogs: [
+                {id: 1, name: 'Smems'},
+                {id: 2, name: 'Bled'},
+                {id: 3, name: 'NoName'},
+                {id: 4, name: 'Anonimus'},
+                {id: 5, name: 'Snowman'}
+            ],
+            messages: [
+                {id: 1, message: 'Hi'},
+                {id: 2, message: 'How are you'},
+                {id: 3, message: 'Im OK'},
+                {id: 4, message: 'And you'},
+                {id: 5, message: 'Im fine'}
+            ],
+            newMessageBody: ""
+        },
     },
-    messagesPage: {
-        dialogs: [
-            {id: 1, name: 'Smems'},
-            {id: 2, name: 'Bled'},
-            {id: 3, name: 'NoName'},
-            {id: 4, name: 'Anonimus'},
-            {id: 5, name: 'Snowman'}
-        ],
-        messages: [
-            {id: 1, message: 'Hi'},
-            {id: 2, message: 'How are you'},
-            {id: 3, message: 'Im OK'},
-            {id: 4, message: 'And you'},
-            {id: 5, message: 'Im fine'}
-        ]
+    _callSubscriber() {
+        console.log('state changed');
+    },
+
+    getState() {
+        return this._state;
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;  //observer - патерн. export in index.js, callback in state.js
+    },
+
+    dispatch(action) { // action - объект у которого есть type
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
+        this._callSubscriber(this._state);
+        }
     }
-}
 
-window.state = state;
 
-export const addPost = () => {
-    let newPost = {
-        id: 3,
-        message: state.profilePage.newPostText,
-        likes: 0
-    };
-    state.profilePage.posts.push(newPost);
-    state.profilePage.newPostText = '';
-    rerenderEntireTree(state);
-}
-
-export const updateNewPostText = (newText) => {
-    state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
-}
-
-export const subscribe = (observer) => {
-    rerenderEntireTree = observer;  //observer - патерн. export in index.js, callback in state.js
-}
-
-export default state;
+export default store;
+window.state = store;
+// store - OOP
