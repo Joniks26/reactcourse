@@ -5,13 +5,18 @@
     
   }
 
+.item {
+    border: solid 3px grey;
+}
+
 .item a {
     color: snow;
     border-bottom: solid 7px grey;
+    text-decoration: none;
     
 }
 
 .item a.activeLink {
-  color: red;
+  color: #60DBFA;
 }
 

@@ -36,7 +36,7 @@ let store = {
         return this._state;
     },
     subscribe(observer) {
-        this._callSubscriber = observer;  //observer - патерн. export in index.js, callback in state.js
+        this._callSubscriber = observer;  //observer - патерн. export in index.js, callback in store.js
     },
 
     dispatch(action) { // action - объект у которого есть type

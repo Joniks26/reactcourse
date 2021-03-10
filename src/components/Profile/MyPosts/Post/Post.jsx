@@ -1,10 +1,6 @@
 import React from 'react';
 import  s from './Post.module.css';
 
-/*let s = {
-//'item': 'Profile_item__10O_i'
-}*/
-
 const Post = (props) => {
 
 return (

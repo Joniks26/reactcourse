@@ -1,19 +1,23 @@
 import React from 'react';
 import  s from './ProfileInfo.module.css';
+import Loading from "../../common/preloader/preloader";
+import userPhoto from "../../../assets/imasges/userPhoto.png";
 
+const ProfileInfo = (props) => {
+    if (!props.profile) {
+        return <Loading />
+    }
 
-/*let s = {
-//'item': 'Profile_item__10O_i'
-}*/
-
-const ProfileInfo = () => {
-return (
+    return (
     <div>
         <div>
             <img className={s.open} src='https://www.spellbrand.com/images/blog/images/neon-logo-designs.jpg'/>
         </div>
         <div>
-            <img className={s.ava} src='https://cdn.shopify.com/s/files/1/0023/8469/1252/products/LED-Tiger_5000x.jpg?v=1587676083'/>
+            <img className={s.ava} src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto}/>
+        </div>
+        <div className={s.fullName}>
+            {props.profile.fullName}
         </div>
     </div>
 )

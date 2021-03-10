@@ -17,3 +17,12 @@
     transition: all 10s;
 }
 
+.loginBlock {
+    float: right;
+    border: solid 5px #323232;
+    color: #60DBFA;
+}
+
+.loginBlock a {
+    color: #60DBFA;
+}
