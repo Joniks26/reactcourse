@@ -2,6 +2,7 @@ import React from 'react';
 import  s from './ProfileInfo.module.css';
 import Loading from "../../common/preloader/preloader";
 import userPhoto from "../../../assets/imasges/userPhoto.png";
+import ProfileStatus from "./ProfileStatus"
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -18,6 +19,9 @@ const ProfileInfo = (props) => {
         </div>
         <div className={s.fullName}>
             {props.profile.fullName}
+        </div>
+        <div>
+            <ProfileStatus status={"Hello!"}/>
         </div>
     </div>
 )

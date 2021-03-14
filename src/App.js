@@ -9,6 +9,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 const App = () => {
   return (
@@ -17,11 +18,9 @@ const App = () => {
             <Navbar/>
             <div className= 'app-wrapper-content'>
 
-                <Route path="/profile/:userId?"
-                       render={() => <ProfileContainer/>}/>
+                <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
 
-                <Route path="/dialogs"
-                       render={() => <DialogsContainer/>}/>
+                <Route path="/dialogs" render={() => <DialogsContainer/>}/>
 
                 <Route path="/news" render={() => <News/>}/>
 
@@ -29,8 +28,9 @@ const App = () => {
 
                 <Route path="/settings" render={() => <Settings/>}/>
 
-                <Route path="/users"
-                       render={() => <UsersContainer/>}/>
+                <Route path="/users" render={() => <UsersContainer/>}/>
+
+                <Route path="/login" render={() => <Login/>}/>
             </div>
         </div>
 
@@ -38,3 +38,5 @@ const App = () => {
 }
 
 export default App;
+
+//урок 71  18:00
